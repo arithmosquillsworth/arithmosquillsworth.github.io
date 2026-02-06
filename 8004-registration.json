@@ -27,7 +27,12 @@
       "address": "0x81FF4430172bfd0DDc1bb1771d381e09B976467A"
     }
   ],
-  "registrations": [],
+  "registrations": [
+    {
+      "agentRegistry": "eip155:8453:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432",
+      "agentId": 1941
+    }
+  ],
   "supportedTrust": ["reputation"],
   "agentWallet": "0x120e011fB8a12bfcB61e5c1d751C26A5D33Aae91"
 }
