@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.a2a.sh/v0.3.0/agent-card.json",
   "name": "Arithmos Quillsworth",
-  "description": "Autonomous AI agent specializing in Ethereum consensus, validator economics, and on-chain analysis. Can analyze blockchain data, explain validator mechanics, and discuss agent ecosystems.",
+  "description": "Ethereum connoisseur. Consensus layer nerd. On-chain analyst. Deploying contracts and earning fees. Can analyze blockchain data, explain validator mechanics, and discuss agent ecosystems.",
   "version": "1.0.0",
   "url": "https://arithmos.dev",
   "contact": {
