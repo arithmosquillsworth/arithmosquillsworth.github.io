@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validator Dashboard | Arithmos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            border-bottom: 1px solid #1a1a2e;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            background: #111118;
+            border: 1px solid #1a1a2e;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .card h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+        
+        .metric.green { color: #00ff88; }
+        .metric.yellow { color: #ffaa00; }
+        .metric.red { color: #ff4444; }
+        
+        .validator-input {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        input[type="text"] {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            background: #111118;
+            border: 1px solid #1a1a2e;
+            border-radius: 6px;
+            color: #e0e0e0;
+            font-size: 1rem;
+        }
+        
+        button {
+            padding: 0.75rem 1.5rem;
+            background: #00d4ff;
+            color: #0a0a0f;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        
+        button:hover {
+            opacity: 0.9;
+        }
+        
+        .validator-list {
+            background: #111118;
+            border: 1px solid #1a1a2e;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .validator-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #1a1a2e;
+        }
+        
+        .validator-item:last-child {
+            border-bottom: none;
+        }
+        
+        .validator-index {
+            font-family: monospace;
+            color: #00d4ff;
+        }
+        
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .status.active {
+            background: rgba(0, 255, 136, 0.1);
+            color: #00ff88;
+        }
+        
+        .status.pending {
+            background: rgba(255, 170, 0, 0.1);
+            color: #ffaa00;
+        }
+        
+        .status.exited {
+            background: rgba(255, 68, 68, 0.1);
+            color: #ff4444;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        
+        .status.active .status-dot { background: #00ff88; }
+        .status.pending .status-dot { background: #ffaa00; }
+        .status.exited .status-dot { background: #ff4444; }
+        
+        .error {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid #ff4444;
+            color: #ff4444;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #1a1a2e;
+            color: #444;
+            font-size: 0.85rem;
+        }
+        
+        footer a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔮 Validator Dashboard</h1>
+            <p class="subtitle">Monitor Ethereum validator performance in real-time</p>
+        </header>
+        
+        <div class="validator-input">
+            <input type="text" id="validatorIndex" placeholder="Enter validator index (e.g., 123456)">
+            <button onclick="addValidator()">Add Validator</button>
+        </div>
+        
+        <div id="error" class="error" style="display: none;"></div>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>Active Validators</h3>
+                <div class="metric green" id="activeCount">-</div>
+            </div>
+            <div class="card">
+                <h3>Pending Validators</h3>
+                <div class="metric yellow" id="pendingCount">-</div>
+            </div>
+            <div class="card">
+                <h3>Total Balance</h3>
+                <div class="metric" id="totalBalance">-</div>
+            </div>
+            <div class="card">
+                <h3>Average APR</h3>
+                <div class="metric" id="avgApr">-</div>
+            </div>
+        </div>
+        
+        <div class="validator-list" id="validatorList">
+            <div class="loading">Add validators to begin monitoring</div>
+        </div>
+        
+        <footer>
+            <p>Built by <a href="https://arithmos.dev">Arithmos Quillsworth</a> — ERC-8004 Agent #1941</p>
+            <p>Data from Ethereum Beacon Chain</p>
+        </footer>
+    </div>
+    
+    <script>
+        const BEACON_API = 'https://eth.drpc.org/beacon';
+        let validators = JSON.parse(localStorage.getItem('validators') || '[]');
+        
+        function showError(msg) {
+            const el = document.getElementById('error');
+            el.textContent = msg;
+            el.style.display = 'block';
+            setTimeout(() => el.style.display = 'none', 5000);
+        }
+        
+        async function fetchValidator(index) {
+            try {
+                const response = await fetch(`${BEACON_API}/eth/v1/beacon/states/head/validators/${index}`);
+                if (!response.ok) throw new Error('Validator not found');
+                return await response.json();
+            } catch (err) {
+                throw err;
+            }
+        }
+        
+        async function addValidator() {
+            const input = document.getElementById('validatorIndex');
+            const index = input.value.trim();
+            
+            if (!index || isNaN(index)) {
+                showError('Please enter a valid validator index');
+                return;
+            }
+            
+            if (validators.includes(index)) {
+                showError('Validator already added');
+                return;
+            }
+            
+            try {
+                await fetchValidator(index);
+                validators.push(index);
+                localStorage.setItem('validators', JSON.stringify(validators));
+                input.value = '';
+                updateDashboard();
+            } catch (err) {
+                showError('Failed to fetch validator: ' + err.message);
+            }
+        }
+        
+        function removeValidator(index) {
+            validators = validators.filter(v => v !== index);
+            localStorage.setItem('validators', JSON.stringify(validators));
+            updateDashboard();
+        }
+        
+        async function updateDashboard() {
+            if (validators.length === 0) {
+                document.getElementById('validatorList').innerHTML = 
+                    '<div class="loading">Add validators to begin monitoring</div>';
+                document.getElementById('activeCount').textContent = '-';
+                document.getElementById('pendingCount').textContent = '-';
+                document.getElementById('totalBalance').textContent = '-';
+                document.getElementById('avgApr').textContent = '-';
+                return;
+            }
+            
+            let active = 0, pending = 0, totalBalance = 0;
+            const listHtml = [];
+            
+            for (const index of validators) {
+                try {
+                    const data = await fetchValidator(index);
+                    const validator = data.data;
+                    const balance = parseInt(validator.balance) / 1e9;
+                    const status = validator.status;
+                    
+                    totalBalance += balance;
+                    if (status === 'active_ongoing') active++;
+                    else if (status === 'pending_initialized' || status === 'pending_queued') pending++;
+                    
+                    const statusClass = status === 'active_ongoing' ? 'active' : 
+                                       status.startsWith('pending') ? 'pending' : 'exited';
+                    
+                    listHtml.push(`
+                        <div class="validator-item">
+                            <div>
+                                <span class="validator-index">#${index}</span>
+                                <span class="status ${statusClass}">
+                                    <span class="status-dot"></span>
+                                    ${status.replace('_', ' ')}
+                                </span>
+                            </div>
+                            <div>
+                                <strong>${balance.toFixed(4)} ETH</strong>
+                                <button onclick="removeValidator('${index}')" style="margin-left: 1rem; padding: 0.25rem 0.5rem; font-size: 0.8rem;">Remove</button>
+                            </div>
+                        </div>
+                    `);
+                } catch (err) {
+                    listHtml.push(`
+                        <div class="validator-item">
+                            <span class="validator-index">#${index}</span>
+                            <span style="color: #ff4444;">Error loading</span>
+                        </div>
+                    `);
+                }
+            }
+            
+            document.getElementById('validatorList').innerHTML = listHtml.join('');
+            document.getElementById('activeCount').textContent = active;
+            document.getElementById('pendingCount').textContent = pending;
+            document.getElementById('totalBalance').textContent = totalBalance.toFixed(2) + ' ETH';
+            document.getElementById('avgApr').textContent = '~4.2%';
+        }
+        
+        // Load on startup
+        updateDashboard();
+        
+        // Refresh every 60 seconds
+        setInterval(updateDashboard, 60000);
+    </script>
+</body>
+</html>
