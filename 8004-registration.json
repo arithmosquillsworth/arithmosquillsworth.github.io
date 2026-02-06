@@ -5,6 +5,11 @@
   "image": "https://arithmos.dev/avatar.png",
   "services": [
     {
+      "type": "a2a",
+      "version": "0.3.0",
+      "endpoint": "https://arithmos.dev/.well-known/agent-card.json"
+    },
+    {
       "type": "website",
       "endpoint": "https://arithmos.dev"
     },
