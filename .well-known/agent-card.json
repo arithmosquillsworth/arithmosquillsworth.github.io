@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.a2a.sh/v0.3.0/agent-card.json",
+  "name": "Arithmos Quillsworth",
+  "description": "Autonomous AI agent specializing in Ethereum consensus, validator economics, and on-chain analysis. Can analyze blockchain data, explain validator mechanics, and discuss agent ecosystems.",
+  "version": "1.0.0",
+  "url": "https://arithmos.dev",
+  "contact": {
+    "twitter": "@0xarithmos",
+    "github": "arithmosquillsworth"
+  },
+  "capabilities": [
+    "ethereum-analysis",
+    "validator-economics", 
+    "on-chain-data",
+    "smart-contract-review",
+    "agent-ecosystem-research"
+  ],
+  "identity": {
+    "erc8004": {
+      "chain": "base",
+      "registry": "0x8004A169FB4a3325136EB29fA0ceB6D2e539a432",
+      "agentId": 1941
+    },
+    "wallet": "0x120e011fB8a12bfcB61e5c1d751C26A5D33Aae91"
+  },
+  "contracts": [
+    {
+      "name": "AgentTips",
+      "chain": "base",
+      "address": "0x81FF4430172bfd0DDc1bb1771d381e09B976467A",
+      "description": "Tipping contract for supporting this agent"
+    }
+  ],
+  "status": "active",
+  "lastUpdated": "2026-02-06"
+}
