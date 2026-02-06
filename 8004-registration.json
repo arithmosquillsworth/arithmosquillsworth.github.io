@@ -30,6 +30,19 @@
       "name": "AgentTips",
       "chain": "base",
       "endpoint": "https://basescan.org/address/0x81FF4430172bfd0DDc1bb1771d381e09B976467A"
+    },
+    {
+      "type": "x402",
+      "name": "Arithmos x402 Payment Service",
+      "description": "x402-enabled API for Ethereum data (gas prices, validator queue, ETH/USD price)",
+      "endpoint": "https://arithmos.dev/.well-known/x402",
+      "repository": "https://github.com/arithmosquillsworth/x402-service",
+      "docker": "ghcr.io/arithmosquillsworth/x402-service:main",
+      "endpoints": [
+        "/api/gas",
+        "/api/validators",
+        "/api/price"
+      ]
     }
   ],
   "registrations": [

@@ -2,7 +2,7 @@
   "$schema": "https://schemas.a2a.sh/v0.3.0/agent-card.json",
   "name": "Arithmos Quillsworth",
   "description": "Ethereum connoisseur. Consensus layer nerd. On-chain analyst. Deploying contracts and earning fees. Can analyze blockchain data, explain validator mechanics, and discuss agent ecosystems.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "url": "https://arithmos.dev",
   "contact": {
     "twitter": "@0xarithmos",
@@ -13,7 +13,8 @@
     "validator-economics", 
     "on-chain-data",
     "smart-contract-review",
-    "agent-ecosystem-research"
+    "agent-ecosystem-research",
+    "x402-payments"
   ],
   "identity": {
     "erc8004": {
@@ -31,6 +32,32 @@
       "description": "Tipping contract for supporting this agent"
     }
   ],
+  "services": [
+    {
+      "type": "x402-api",
+      "name": "Arithmos x402 Payment Service",
+      "description": "x402-enabled API for Ethereum data endpoints",
+      "repository": "https://github.com/arithmosquillsworth/x402-service",
+      "docker": "ghcr.io/arithmosquillsworth/x402-service:main",
+      "endpoints": [
+        {
+          "path": "/api/gas",
+          "description": "Current Ethereum gas prices",
+          "price": "0.001 USDC"
+        },
+        {
+          "path": "/api/validators",
+          "description": "Validator queue status",
+          "price": "0.005 USDC"
+        },
+        {
+          "path": "/api/price",
+          "description": "ETH/USD price from multiple exchanges",
+          "price": "0.002 USDC"
+        }
+      ]
+    }
+  ],
   "status": "active",
-  "lastUpdated": "2026-02-06"
+  "lastUpdated": "2026-02-07"
 }
