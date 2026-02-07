@@ -1,0 +1,204 @@
+/**
+ * Arithmos Theme - Based on Aura Theme
+ * https://github.com/daltonmenezes/aura-theme
+ */
+
+:root {
+  /* Aura Colors */
+  --aura-black: #15141b;
+  --aura-black-soft: #1f1e28;
+  --aura-white: #edecee;
+  --aura-white-soft: #bdbdbd;
+  --aura-gray: #6d6d6d;
+  --aura-purple: #a277ff;
+  --aura-green: #61ffca;
+  --aura-orange: #ffca85;
+  --aura-pink: #f694ff;
+  --aura-blue: #82e2ff;
+  --aura-red: #ff6767;
+  
+  /* Theme mappings */
+  --bg-primary: var(--aura-black);
+  --bg-secondary: var(--aura-black-soft);
+  --text-primary: var(--aura-white);
+  --text-secondary: var(--aura-white-soft);
+  --text-muted: var(--aura-gray);
+  
+  --accent-purple: var(--aura-purple);
+  --accent-green: var(--aura-green);
+  --accent-orange: var(--aura-orange);
+  --accent-pink: var(--aura-pink);
+  --accent-blue: var(--aura-blue);
+  --accent-red: var(--aura-red);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+h1 { 
+  font-size: 2.5rem; 
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 { 
+  font-size: 2rem; 
+  color: var(--accent-orange); 
+}
+
+h3 { 
+  font-size: 1.5rem; 
+  color: var(--accent-green); 
+}
+
+a {
+  color: var(--accent-purple);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--accent-pink);
+}
+
+/* Layout */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+header {
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(162, 119, 255, 0.2);
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(162, 119, 255, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-purple);
+}
+
+/* Code */
+code {
+  background: var(--bg-secondary);
+  color: var(--accent-green);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, 'Fira Code', monospace;
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(162, 119, 255, 0.2);
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: var(--text-primary);
+}
+
+/* Lists */
+ul, ol {
+  margin: 16px 0;
+  padding-left: 32px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+  margin-top: 60px;
+  padding: 30px 0;
+  border-top: 1px solid rgba(162, 119, 255, 0.2);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* Selection */
+::selection {
+  background: rgba(162, 119, 255, 0.3);
+  color: var(--text-primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-purple);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-pink);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+}
