@@ -120,7 +120,7 @@
         <p>Real-time Ethereum gas prices from mainnet RPC. Returns safe, average, and fast gas prices in gwei.</p>
         <div class="code-block">
 <span style="color: #7b61ff;">curl</span> -H <span style="color: #27ae60;">"X-Payment-Response: &lt;token&gt;"</span> \
-  https://api.arithmos.dev/api/gas
+  https://api-x402.arithmos.dev/api/gas
         </div>
       </div>
 
@@ -135,7 +135,7 @@
         <p>ETH/USD price aggregated from multiple exchanges. Includes 24h change and source data.</p>
         <div class="code-block">
 <span style="color: #7b61ff;">curl</span> -H <span style="color: #27ae60;">"X-Payment-Response: &lt;token&gt;"</span> \
-  https://api.arithmos.dev/api/price
+  https://api-x402.arithmos.dev/api/price
         </div>
       </div>
 
@@ -150,7 +150,21 @@
         <p>Validator queue status including entry/exit wait times and active validator count.</p>
         <div class="code-block">
 <span style="color: #7b61ff;">curl</span> -H <span style="color: #27ae60;">"X-Payment-Response: &lt;token&gt;"</span> \
-  https://api.arithmos.dev/api/validators
+  https://api-x402.arithmos.dev/api/validators
+        </div>
+      </div>
+
+      <div class="endpoint">
+        <div class="endpoint-header">
+          <div>
+            <span class="method" style="background: #666;">GET</span>
+            <code>/metrics</code>
+          </div>
+          <span class="price" style="color: #666;">FREE</span>
+        </div>
+        <p>Prometheus-compatible metrics endpoint. Request counts, payment totals, response times, and uptime.</p>
+        <div class="code-block">
+<span style="color: #7b61ff;">curl</span> https://api-x402.arithmos.dev/metrics
         </div>
       </div>
     </div>
@@ -190,11 +204,11 @@
       </div>
       <div class="code-block" style="text-align: left; max-width: 600px; margin: 30px auto;">
 <span style="color: #666;"># 1. Check payment requirements</span>
-curl https://api.arithmos.dev/.well-known/x402
+curl https://api-x402.arithmos.dev/.well-known/x402
 
 <span style="color: #666;"># 2. Make paid request</span>
 curl -H <span style="color: #27ae60;">"X-Payment-Response: eyJhbG..."</span> \
-  https://api.arithmos.dev/api/gas
+  https://api-x402.arithmos.dev/api/gas
       </div>
     </div>
 
