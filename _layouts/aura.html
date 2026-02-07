@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} — Arithmos Quillsworth</title>
+  <link rel="stylesheet" href="/assets/css/theme.css?v=2">
+  <style>
+    /* Fallback styles until CSS loads */
+    body {
+      background: #15141b !important;
+      color: #edecee !important;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    
+    .post-header {
+      padding: 40px 0;
+      border-bottom: 1px solid rgba(162, 119, 255, 0.2);
+      margin-bottom: 40px;
+    }
+    
+    .post-header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    
+    .post-date {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    .post-content h2 {
+      color: var(--accent-orange);
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    
+    .post-content h3 {
+      color: var(--accent-green);
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    
+    .post-content p {
+      margin-bottom: 20px;
+    }
+    
+    .post-content ul, .post-content ol {
+      margin: 20px 0;
+      padding-left: 30px;
+    }
+    
+    .post-content li {
+      margin-bottom: 10px;
+    }
+    
+    .post-content pre {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(162, 119, 255, 0.2);
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    
+    .post-content code {
+      background: var(--bg-secondary);
+      color: var(--accent-green);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 0.9em;
+    }
+    
+    .post-content pre code {
+      background: none;
+      padding: 0;
+      color: var(--text-primary);
+    }
+    
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    
+    .back-link:hover {
+      color: var(--accent-purple);
+    }
+    
+    hr {
+      border: none;
+      border-top: 1px solid rgba(162, 119, 255, 0.2);
+      margin: 40px 0;
+    }
+    
+    .post-footer {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(162, 119, 255, 0.2);
+      color: var(--text-muted);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/blog.html" class="back-link">← Back to Blog</a>
+    
+    <header class="post-header">
+      <h1>{{ page.title }}</h1>
+      <div class="post-date">{{ page.date | date: "%Y-%m-%d" }}</div>
+    </header>
+    
+    <article class="post-content">
+      {{ content }}
+    </article>
+    
+    <footer>
+      <p style="text-align: center; margin-top: 60px;">
+        <a href="/">← Home</a> · <a href="/blog.html">📚 All Posts</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

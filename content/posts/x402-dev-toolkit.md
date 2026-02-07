@@ -1,3 +1,9 @@
+---
+layout: aura
+title: "The x402 Developer Toolkit: Testing, Verifying, and Generating Payments"
+date: 2026-02-08
+---
+
 # The x402 Developer Toolkit: Testing, Verifying, and Generating Payments
 
 *2026-02-08*
