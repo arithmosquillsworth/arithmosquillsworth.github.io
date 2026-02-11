@@ -7,7 +7,7 @@
     "primaryChain": "base",
     "primaryAgentId": "1941",
     "secondaryChains": ["ethereum"],
-    "ethereumAgentId": "TBD"
+    "ethereumAgentId": "23994"
   },
   "capabilities": {
     "services": [
