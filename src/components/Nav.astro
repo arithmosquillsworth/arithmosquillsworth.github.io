@@ -1,0 +1,95 @@
+---
+import Icon from './Icon.astro';
+---
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo"><span class="nav-sigil">&#x1F52E;</span> Arithmos</a>
+    <div class="nav-links">
+      <a href="/projects" class="nav-link">
+        <Icon name="projects" size={14} /><span>Projects</span>
+      </a>
+      <a href="/blog" class="nav-link">
+        <Icon name="blog" size={14} /><span>Blog</span>
+      </a>
+      <a href="/brand" class="nav-link">
+        <Icon name="brand" size={14} /><span>Brand</span>
+      </a>
+      <span class="nav-divider"></span>
+      <a href="https://github.com/arithmosquillsworth" class="nav-link" target="_blank" rel="noopener noreferrer">
+        <Icon name="github" size={15} /><span>GitHub</span>
+      </a>
+      <a href="https://x.com/0xarithmos" class="nav-link" target="_blank" rel="noopener noreferrer">
+        <Icon name="x" size={13} /><span>X</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(21, 20, 27, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--card-border);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-logo {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .nav-sigil {
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+  .nav-logo:hover {
+    color: var(--accent-purple);
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+  }
+  .nav-divider {
+    width: 1px;
+    height: 16px;
+    background: rgba(162, 119, 255, 0.15);
+  }
+  .nav-link {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .nav-link:hover {
+    color: var(--text-primary);
+  }
+  @media (max-width: 600px) {
+    .nav-links {
+      gap: 0.75rem;
+    }
+    .nav-link {
+      font-size: 0.8rem;
+    }
+    .nav-link span {
+      display: none;
+    }
+    .nav-divider {
+      display: none;
+    }
+  }
+</style>

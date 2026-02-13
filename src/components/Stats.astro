@@ -1,0 +1,84 @@
+---
+import { identity } from '../data/identity';
+---
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      {identity.stats.map((stat, i) => (
+        <div class="stat-card">
+          <span class="stat-value mono">{stat.value}</span>
+          <span class="stat-label">{stat.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-section {
+    padding: 2.5rem 0;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .stat-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(97, 255, 202, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .stat-card:hover {
+    border-color: rgba(97, 255, 202, 0.25);
+    transform: translateY(-2px);
+  }
+  .stat-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent-green);
+    line-height: 1;
+    position: relative;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 375px) {
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .stat-card {
+      padding: 1.25rem 0.75rem;
+    }
+    .stat-value {
+      font-size: 1.8rem;
+    }
+  }
+</style>

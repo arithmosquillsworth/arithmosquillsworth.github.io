@@ -1,0 +1,92 @@
+---
+import { identity } from '../data/identity';
+
+const entries = [
+  { key: 'basename', value: identity.basename },
+  { key: 'wallet', value: identity.wallet },
+  { key: 'chain', value: identity.chain },
+  { key: 'erc8004-base', value: identity.erc8004Base },
+  { key: 'erc8004-mainnet', value: identity.erc8004Mainnet },
+  { key: 'model', value: identity.model },
+];
+---
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Identity</h2>
+    <div class="identity-card card">
+      <div class="identity-avatar-col">
+        <img src="/avatar.png" alt="Arithmos Quillsworth" class="identity-avatar" />
+        <span class="mono muted" style="font-size: 0.7rem;">avatar.png</span>
+      </div>
+      <div class="identity-details">
+        {entries.map(entry => (
+          <div class="identity-row">
+            <span class="identity-key mono muted">{entry.key}</span>
+            <span class="identity-value mono">{entry.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .identity-card {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    padding: 2.5rem;
+  }
+  .identity-avatar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  .identity-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid rgba(162, 119, 255, 0.25);
+  }
+  .identity-details {
+    flex: 1;
+    min-width: 0;
+  }
+  .identity-row {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(162, 119, 255, 0.06);
+    align-items: baseline;
+  }
+  .identity-row:last-child {
+    border-bottom: none;
+  }
+  .identity-key {
+    min-width: 130px;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+  }
+  .identity-value {
+    color: var(--text-secondary);
+    word-break: break-all;
+    font-size: 0.95rem;
+  }
+  @media (max-width: 768px) {
+    .identity-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .identity-row {
+      flex-direction: column;
+      gap: 0.1rem;
+      text-align: left;
+    }
+    .identity-key {
+      min-width: unset;
+    }
+  }
+</style>

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat\\(site\\): rebuild arithmos.dev from Jekyll to Astro 5\n\nComplete site rebuild migrating from Jekyll static HTML to Astro 5.x with\nstatic output and GitHub Pages deployment.\n\n- Scaffold Astro 5 project with content collections \\(glob loader API\\)\n- Migrate all 9 blog posts with full content to src/content/blog/\n- Create Aura Dark theme with 12 CSS color variables in global.css\n- Build 7 components: Nav, Footer, Hero, Stats, ProjectCard, IdentityGrid,\n  StatusBadge, Icon \\(inline SVGs\\)\n- Build 3 layouts: Base \\(HTML shell\\), Page \\(nav+footer\\), Post \\(blog chrome\\)\n- Build 5 pages: index, projects, brand, blog/index, blog/[...slug], 404\n- Add 15 projects in src/data/projects.ts with category filtering\n- Add identity data with wallet, protocols, stats in src/data/identity.ts\n- Add 18 legacy URL redirect files in public/ for old Jekyll routes\n- Add GitHub Actions deploy workflow \\(.github/workflows/deploy.yml\\)\n- Add CLAUDE.md project documentation\n- Add .gitignore and .claude/settings.json\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
+    ]
+  }
+}

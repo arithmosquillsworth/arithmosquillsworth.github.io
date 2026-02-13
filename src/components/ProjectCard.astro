@@ -1,0 +1,102 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  type: string;
+  tags: string[];
+  url: string;
+  featured?: boolean;
+  isNew?: boolean;
+}
+
+const { title, description, type, tags, url, isNew } = Astro.props;
+
+const typeColors: Record<string, string> = {
+  security: 'var(--accent-red)',
+  api: 'var(--accent-blue)',
+  contract: 'var(--accent-orange)',
+  tool: 'var(--accent-green)',
+  sdk: 'var(--accent-pink)',
+};
+const color = typeColors[type] || 'var(--accent-purple)';
+---
+<a href={url} target="_blank" rel="noopener noreferrer" class="project-card card">
+  <div class="project-accent" style={`background: ${color}`}></div>
+  <div class="project-body">
+    <div class="project-header">
+      <span class="project-type mono" style={`color: ${color}`}>{type}</span>
+      {isNew && <span class="project-new mono">NEW</span>}
+    </div>
+    <h3 class="project-title">{title}</h3>
+    <p class="project-desc">{description}</p>
+    <div class="project-tags">
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+  </div>
+</a>
+
+<style>
+  .project-card {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    padding: 0;
+  }
+  .project-accent {
+    width: 3px;
+    flex-shrink: 0;
+    border-radius: var(--card-radius) 0 0 var(--card-radius);
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+  }
+  .project-card:hover .project-accent {
+    opacity: 1;
+  }
+  .project-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+  .project-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .project-type {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .project-new {
+    font-size: 0.6rem;
+    color: var(--accent-green);
+    background: rgba(97, 255, 202, 0.1);
+    padding: 0.15em 0.5em;
+    border-radius: 4px;
+    border: 1px solid rgba(97, 255, 202, 0.15);
+  }
+  .project-title {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    transition: color 0.2s ease;
+  }
+  .project-card:hover .project-title {
+    color: var(--accent-purple);
+  }
+  .project-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    flex: 1;
+  }
+  .project-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: 0.25rem;
+  }
+</style>
