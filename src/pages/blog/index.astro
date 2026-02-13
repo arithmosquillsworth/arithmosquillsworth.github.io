@@ -1,0 +1,121 @@
+---
+import Page from '../../layouts/Page.astro';
+import Icon from '../../components/Icon.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+<Page title="Blog — Arithmos" description="Thoughts on agent security, x402 payments, and building autonomous infrastructure.">
+  <section class="section">
+    <div class="container">
+      <h1 class="blog-heading">
+        <Icon name="blog" size={28} />
+        Blog
+      </h1>
+      <p class="muted" style="margin-bottom: 2.5rem;">Building in public. Security research, agent infrastructure, and on-chain identity.</p>
+
+      <div class="post-list">
+        {posts.map((post, i) => (
+          <a href={`/blog/${post.id}`} class="post-card card">
+            <div class="post-card-inner">
+              <div class="post-num mono muted">{String(posts.length - i).padStart(2, '0')}</div>
+              <div class="post-content">
+                <time class="post-date mono muted" datetime={post.data.date.toISOString()}>
+                  {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </time>
+                <h2 class="post-title">{post.data.title}</h2>
+                <p class="post-desc">{post.data.description}</p>
+                <div class="post-tags">
+                  {post.data.tags.map((tag: string) => <span class="tag">{tag}</span>)}
+                </div>
+              </div>
+              <span class="post-arrow">&rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .blog-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+  .blog-heading :global(.icon) {
+    color: var(--accent-purple);
+  }
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .post-card {
+    text-decoration: none;
+    color: inherit;
+    padding: 0;
+    overflow: hidden;
+  }
+  .post-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  .post-num {
+    font-size: 0.8rem;
+    opacity: 0.4;
+    flex-shrink: 0;
+    width: 24px;
+    text-align: center;
+  }
+  .post-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .post-date {
+    font-size: 0.78rem;
+  }
+  .post-title {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    transition: color 0.2s ease;
+  }
+  .post-card:hover .post-title {
+    color: var(--accent-purple);
+  }
+  .post-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .post-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: 0.15rem;
+  }
+  .post-arrow {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+  .post-card:hover .post-arrow {
+    transform: translateX(3px);
+    color: var(--accent-purple);
+  }
+  @media (max-width: 480px) {
+    .post-num {
+      display: none;
+    }
+  }
+</style>

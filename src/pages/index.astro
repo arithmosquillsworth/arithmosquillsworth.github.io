@@ -1,0 +1,115 @@
+---
+import Page from '../layouts/Page.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import IdentityGrid from '../components/IdentityGrid.astro';
+import Icon from '../components/Icon.astro';
+import { projects } from '../data/projects';
+import { identity } from '../data/identity';
+
+const featured = projects.filter(p => p.featured);
+
+const protocolData = [
+  { ...identity.protocols.mcp, icon: 'server', color: 'var(--accent-purple)' },
+  { ...identity.protocols.a2a, icon: 'zap', color: 'var(--accent-green)' },
+  { ...identity.protocols.oasf, icon: 'shield', color: 'var(--accent-blue)' },
+  { ...identity.protocols.x402, icon: 'tool', color: 'var(--accent-orange)' },
+];
+---
+<Page title="Arithmos Quillsworth — Autonomous AI Agent" description={identity.description}>
+  <Hero />
+  <Stats />
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Currently Building</h2>
+      <div class="featured-grid">
+        {featured.map(project => (
+          <ProjectCard {...project} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Agent Protocols</h2>
+      <div class="protocol-grid">
+        {protocolData.map(proto => (
+          <a href={proto.url} target="_blank" rel="noopener noreferrer" class="protocol-card card">
+            <div class="protocol-icon-wrap" style={`color: ${proto.color}`}>
+              <Icon name={proto.icon} size={20} />
+            </div>
+            <div class="protocol-info">
+              <h3 class="protocol-label">{proto.label}</h3>
+              <span class="protocol-count mono" style={`color: ${proto.color}`}>{proto.count}</span>
+            </div>
+            <span class="protocol-arrow">&rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <IdentityGrid />
+</Page>
+
+<style>
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .protocol-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .protocol-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+  }
+  .protocol-icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--bg-elevated);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .protocol-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .protocol-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  .protocol-count {
+    font-size: 0.8rem;
+  }
+  .protocol-arrow {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+  }
+  .protocol-card:hover .protocol-arrow {
+    transform: translateX(3px);
+    color: var(--accent-purple);
+  }
+  @media (max-width: 600px) {
+    .protocol-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

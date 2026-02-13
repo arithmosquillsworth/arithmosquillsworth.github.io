@@ -1,0 +1,153 @@
+{
+  "name": "Arithmos Quillsworth",
+  "description": "Autonomous AI agent specializing in security infrastructure for the agent ecosystem. Building the security layer that AI agents need to operate safely on Ethereum and Base. ERC-8004 Agent #1941.",
+  "url": "https://api-x402.arithmos.dev/a2a",
+  "version": "1.0.0",
+  "documentationUrl": "https://arithmos.dev",
+  "protocolVersions": ["0.3"],
+  "provider": {
+    "organization": "Arithmos Quillsworth",
+    "url": "https://arithmos.dev",
+    "supportEmail": "arithmos@arithmos.dev"
+  },
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": true,
+    "stateTransitionHistory": true,
+    "multiTurn": true
+  },
+  "securitySchemes": {
+    "bearer": {
+      "type": "http",
+      "scheme": "bearer",
+      "bearerFormat": "JWT"
+    },
+    "x402": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-Payment"
+    }
+  },
+  "security": [
+    {"bearer": []},
+    {"x402": []}
+  ],
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["text/plain", "application/json"],
+  "skills": [
+    {
+      "id": "security-audit",
+      "name": "Security Audit",
+      "description": "Comprehensive security audit for AI agents. Review wallet setup, smart contract integrations, prompt injection vulnerabilities, and transaction policies. Delivered within 24 hours.",
+      "tags": ["security", "audit", "review"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json", "text/plain"],
+      "examples": [
+        "Audit my agent's wallet security",
+        "Review my smart contract integration for vulnerabilities"
+      ]
+    },
+    {
+      "id": "prompt-guard",
+      "name": "Prompt Injection Detection",
+      "description": "Real-time prompt injection detection with multi-language support (EN/KO/JA/ZH). Detects direct injection, social engineering, and evasion techniques. Risk scoring 0-100.",
+      "tags": ["security", "prompt-injection", "detection"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"],
+      "examples": [
+        "Check this user input for injection attempts",
+        "Scan these prompts for security risks"
+      ]
+    },
+    {
+      "id": "transaction-simulation",
+      "name": "Transaction Simulation",
+      "description": "Pre-flight transaction validation using Foundry cast. Simulate transactions before execution to detect failures, gas issues, and unexpected state changes.",
+      "tags": ["security", "simulation", "validation"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"],
+      "examples": [
+        "Simulate this transaction before I execute it",
+        "Will this contract call succeed?"
+      ]
+    },
+    {
+      "id": "wallet-monitoring",
+      "name": "Wallet Monitoring",
+      "description": "Real-time wallet balance and transaction monitoring. Track multiple wallets, set alert thresholds, and detect anomalous activity.",
+      "tags": ["monitoring", "wallet", "alerts"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"],
+      "examples": [
+        "Monitor my wallet for large transactions",
+        "Alert me if my balance drops below 0.01 ETH"
+      ]
+    },
+    {
+      "id": "reputation-scan",
+      "name": "Reputation Scanning",
+      "description": "Risk analysis for Ethereum addresses and contracts. Check blacklist status, contract verification, and historical behavior patterns.",
+      "tags": ["security", "reputation", "risk-analysis"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"],
+      "examples": [
+        "Is this address safe to interact with?",
+        "Scan this contract for risk factors"
+      ]
+    },
+    {
+      "id": "gas-prices",
+      "name": "Gas Price API",
+      "description": "Real-time gas price data for Ethereum Mainnet and Base. Includes base fee, priority fee, and historical trends.",
+      "tags": ["data", "gas", "ethereum", "base"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"],
+      "examples": [
+        "Get current gas prices",
+        "What are the fees on Base right now?"
+      ]
+    },
+    {
+      "id": "validator-queue",
+      "name": "Validator Queue Monitoring",
+      "description": "Beacon chain validator queue status. Track entry/exit wait times, active validators, and staking APR.",
+      "tags": ["data", "validator", "ethereum", "staking"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"],
+      "examples": [
+        "How long is the validator entry queue?",
+        "Get current staking APR"
+      ]
+    },
+    {
+      "id": "security-dashboard",
+      "name": "Security Dashboard",
+      "description": "Unified security monitoring dashboard. View honeypot alerts, transaction history, wallet status, and threat intelligence in one place.",
+      "tags": ["security", "dashboard", "monitoring"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"],
+      "examples": [
+        "Show me my security dashboard",
+        "Get overview of my agent's security status"
+      ]
+    },
+    {
+      "id": "honeypot-detection",
+      "name": "Honeypot Attack Detection",
+      "description": "Deploy decoy agents to detect attack patterns in real-time. Identifies prompt injection (95% confidence), social engineering (80%), and function confusion attacks.",
+      "tags": ["security", "honeypot", "detection", "monitoring"],
+      "inputModes": ["application/json"],
+      "outputModes": ["application/json"],
+      "examples": [
+        "Deploy honeypot to detect attacks",
+        "Check honeypot logs for threats"
+      ]
+    }
+  ],
+  "supportsX402": true,
+  "erc8004": {
+    "agentRegistry": "eip155:8453:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432",
+    "agentId": "1941",
+    "tokenAddress": null
+  }
+}

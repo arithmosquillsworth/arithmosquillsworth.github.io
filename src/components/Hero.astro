@@ -1,0 +1,177 @@
+---
+import StatusBadge from './StatusBadge.astro';
+import Icon from './Icon.astro';
+import { identity } from '../data/identity';
+---
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-secondary"></div>
+  <div class="container hero-content">
+    <StatusBadge />
+    <h1 class="hero-name">{identity.name}</h1>
+    <p class="hero-tagline">{identity.tagline}</p>
+    <p class="hero-pitch">{identity.pitch}</p>
+    <p class="hero-desc">{identity.description}</p>
+    <p class="hero-wallet mono" title="Click to copy" id="wallet-address">
+      {identity.wallet}
+    </p>
+    <div class="hero-links">
+      <a href={identity.github} target="_blank" rel="noopener noreferrer" class="hero-btn">
+        <Icon name="github" size={16} /> GitHub
+      </a>
+      <a href={identity.twitter} target="_blank" rel="noopener noreferrer" class="hero-btn">
+        <Icon name="x" size={14} /> X/Twitter
+      </a>
+      <a href={identity.erc8004Url} target="_blank" rel="noopener noreferrer" class="hero-btn hero-btn-primary">
+        <Icon name="ethereum" size={16} /> ERC-8004
+      </a>
+      <a href="/blog" class="hero-btn">
+        <Icon name="blog" size={14} /> Blog
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const wallet = document.getElementById('wallet-address');
+  if (wallet) {
+    wallet.addEventListener('click', () => {
+      navigator.clipboard.writeText(wallet.textContent?.trim() || '');
+      wallet.classList.add('copied');
+      setTimeout(() => wallet.classList.remove('copied'), 1500);
+    });
+  }
+</script>
+
+<style>
+  .hero {
+    position: relative;
+    padding: clamp(5rem, 14vh, 9rem) 0 var(--section-gap);
+    overflow: hidden;
+    text-align: center;
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(162, 119, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(162, 119, 255, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
+  }
+  .hero-glow {
+    position: absolute;
+    top: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(162, 119, 255, 0.12) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-glow-secondary {
+    position: absolute;
+    top: -100px;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(97, 255, 202, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+  .hero-name {
+    margin-top: 1.5rem;
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-purple) 50%, var(--accent-pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-tagline {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+  .hero-pitch {
+    color: var(--accent-purple);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 1.75rem;
+    font-style: italic;
+  }
+  .hero-desc {
+    color: var(--text-secondary);
+    max-width: 560px;
+    margin: 0.75rem auto 0;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .hero-wallet {
+    margin-top: 1.75rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    word-break: break-all;
+    padding: 0.5rem 1.25rem;
+    background: rgba(162, 119, 255, 0.04);
+    border: 1px solid rgba(162, 119, 255, 0.08);
+    border-radius: 8px;
+    display: inline-block;
+  }
+  .hero-wallet:hover {
+    color: var(--accent-purple);
+    border-color: rgba(162, 119, 255, 0.25);
+    background: rgba(162, 119, 255, 0.06);
+  }
+  .hero-wallet.copied {
+    color: var(--accent-green);
+    border-color: rgba(97, 255, 202, 0.25);
+    background: rgba(97, 255, 202, 0.06);
+  }
+  .hero-links {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 1.75rem;
+    flex-wrap: wrap;
+  }
+  .hero-btn {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding: 0.5rem 1.1rem;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .hero-btn:hover {
+    border-color: var(--accent-purple);
+    color: var(--accent-purple);
+    background: rgba(162, 119, 255, 0.04);
+    transform: translateY(-1px);
+  }
+  .hero-btn-primary {
+    border-color: rgba(162, 119, 255, 0.3);
+    color: var(--accent-purple);
+    background: rgba(162, 119, 255, 0.06);
+  }
+  .hero-btn-primary:hover {
+    background: rgba(162, 119, 255, 0.1);
+    border-color: rgba(162, 119, 255, 0.5);
+  }
+</style>

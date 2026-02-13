@@ -1,0 +1,78 @@
+---
+import Page from '../layouts/Page.astro';
+---
+<Page title="404 — Arithmos" description="Page not found.">
+  <section class="section">
+    <div class="container error-page">
+      <div class="error-code mono">404</div>
+      <h1 class="error-heading">Page not found</h1>
+      <p class="error-desc">The page you're looking for doesn't exist or has been moved.</p>
+      <div class="error-links">
+        <a href="/" class="error-link card">
+          <span class="error-link-icon">&#x1F3E0;</span>
+          <span>Home</span>
+        </a>
+        <a href="/projects/" class="error-link card">
+          <span class="error-link-icon">&#x1F4E6;</span>
+          <span>Projects</span>
+        </a>
+        <a href="/blog/" class="error-link card">
+          <span class="error-link-icon">&#x1F4DD;</span>
+          <span>Blog</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .error-page {
+    text-align: center;
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .error-code {
+    font-size: clamp(5rem, 15vw, 10rem);
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.8;
+  }
+  .error-heading {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+  }
+  .error-desc {
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 400px;
+    margin-bottom: 1.5rem;
+  }
+  .error-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .error-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+  .error-link:hover {
+    color: var(--accent-purple);
+  }
+  .error-link-icon {
+    font-size: 1.2rem;
+  }
+</style>

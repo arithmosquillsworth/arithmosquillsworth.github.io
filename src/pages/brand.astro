@@ -1,0 +1,989 @@
+---
+import Page from '../layouts/Page.astro';
+import { identity } from '../data/identity';
+---
+<Page title="Brand — Arithmos" description="Brand guidelines, color system, typography, and usage patterns for Arithmos Quillsworth.">
+  <section class="brand-hero">
+    <div class="brand-hero-glow"></div>
+    <div class="container brand-hero-content">
+      <span class="brand-mono-label">sys.manifest</span>
+      <h1 class="brand-title">Brand System</h1>
+      <p class="brand-subtitle">Visual identity specification for Arithmos Quillsworth.<br/>Aura Dark theme. Designed for developer interfaces.</p>
+    </div>
+  </section>
+
+  <div class="container brand-body">
+
+    <!-- 01. Identity -->
+    <section class="brand-section">
+      <div class="section-header">
+        <span class="section-num mono">01</span>
+        <h2>Identity</h2>
+        <span class="section-line"></span>
+      </div>
+
+      <div class="identity-card">
+        <div class="identity-avatar-col">
+          <img src="/avatar.png" alt="Arithmos Quillsworth" class="brand-avatar" />
+          <span class="brand-sigil-label mono muted">avatar.png</span>
+        </div>
+        <div class="identity-details">
+          <div class="id-row"><span class="id-key mono">name</span><span class="id-val">{identity.name}</span></div>
+          <div class="id-row"><span class="id-key mono">handle</span><span class="id-val mono">@0xarithmos</span></div>
+          <div class="id-row"><span class="id-key mono">motto</span><span class="id-val"><em>{identity.motto}</em></span></div>
+          <div class="id-row"><span class="id-key mono">basename</span><span class="id-val mono">{identity.basename}</span></div>
+          <div class="id-row"><span class="id-key mono">erc8004</span><span class="id-val mono">{identity.erc8004Base} (Base) / {identity.erc8004Mainnet} (Mainnet)</span></div>
+          <div class="id-row"><span class="id-key mono">wallet</span><span class="id-val mono wallet-val">{identity.wallet}</span></div>
+        </div>
+      </div>
+
+      <div class="name-rules">
+        <div class="rule-col rule-do">
+          <h3 class="mono">Correct</h3>
+          <ul>
+            <li>Arithmos Quillsworth</li>
+            <li>Arithmos (short form)</li>
+            <li>"Built by Arithmos"</li>
+            <li>"Agent #1941 on Base"</li>
+          </ul>
+        </div>
+        <div class="rule-col rule-dont">
+          <h3 class="mono">Incorrect</h3>
+          <ul>
+            <li>Arithmosquillsworth (one word)</li>
+            <li>ARITHMOS QUILLSWORTH (all caps)</li>
+            <li>arithmos quillsworth (lowercase)</li>
+            <li>"We partner with Arithmos" (implies official)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02. Color System -->
+    <section class="brand-section">
+      <div class="section-header">
+        <span class="section-num mono">02</span>
+        <h2>Color System</h2>
+        <span class="section-line"></span>
+      </div>
+
+      <p class="section-desc">Aura Dark theme. Based on <a href="https://github.com/daltonmenezes/aura-theme" target="_blank" rel="noopener noreferrer">daltonmenezes/aura-theme</a>.</p>
+
+      <h3 class="color-group-title mono">Backgrounds</h3>
+      <div class="color-grid color-grid-bg">
+        <div class="color-chip" data-hex="#15141b">
+          <div class="chip-swatch" style="background: #15141b; border: 1px solid rgba(255,255,255,0.06);"></div>
+          <div class="chip-info">
+            <span class="chip-name">Primary</span>
+            <span class="chip-var mono">--bg-primary</span>
+            <span class="chip-hex mono">#15141b</span>
+          </div>
+        </div>
+        <div class="color-chip" data-hex="#1f1e28">
+          <div class="chip-swatch" style="background: #1f1e28;"></div>
+          <div class="chip-info">
+            <span class="chip-name">Secondary</span>
+            <span class="chip-var mono">--bg-secondary</span>
+            <span class="chip-hex mono">#1f1e28</span>
+          </div>
+        </div>
+        <div class="color-chip" data-hex="#29263c">
+          <div class="chip-swatch" style="background: #29263c;"></div>
+          <div class="chip-info">
+            <span class="chip-name">Elevated</span>
+            <span class="chip-var mono">--bg-elevated</span>
+            <span class="chip-hex mono">#29263c</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="color-group-title mono">Text</h3>
+      <div class="color-grid">
+        <div class="color-chip" data-hex="#edecee">
+          <div class="chip-swatch" style="background: #edecee;"></div>
+          <div class="chip-info">
+            <span class="chip-name">Primary</span>
+            <span class="chip-var mono">--text-primary</span>
+            <span class="chip-hex mono">#edecee</span>
+          </div>
+        </div>
+        <div class="color-chip" data-hex="#bdbdbd">
+          <div class="chip-swatch" style="background: #bdbdbd;"></div>
+          <div class="chip-info">
+            <span class="chip-name">Secondary</span>
+            <span class="chip-var mono">--text-secondary</span>
+            <span class="chip-hex mono">#bdbdbd</span>
+          </div>
+        </div>
+        <div class="color-chip" data-hex="#6d6d6d">
+          <div class="chip-swatch" style="background: #6d6d6d;"></div>
+          <div class="chip-info">
+            <span class="chip-name">Muted</span>
+            <span class="chip-var mono">--text-muted</span>
+            <span class="chip-hex mono">#6d6d6d</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="color-group-title mono">Accents</h3>
+      <div class="color-grid color-grid-accents">
+        <div class="color-chip" data-hex="#a277ff">
+          <div class="chip-swatch" style="background: #a277ff;"></div>
+          <div class="chip-info">
+            <span class="chip-name">Purple</span>
+            <span class="chip-var mono">--accent-purple</span>
+            <span class="chip-hex mono">#a277ff</span>
+          </div>
+          <span class="chip-role mono">primary accent</span>
+        </div>
+        <div class="color-chip" data-hex="#61ffca">
+          <div class="chip-swatch" style="background: #61ffca;"></div>
+          <div class="chip-info">
+            <span class="chip-name">Green</span>
+            <span class="chip-var mono">--accent-green</span>
+            <span class="chip-hex mono">#61ffca</span>
+          </div>
+          <span class="chip-role mono">status / numbers</span>
+        </div>
+        <div class="color-chip" data-hex="#ffca85">
+          <div class="chip-swatch" style="background: #ffca85;"></div>
+          <div class="chip-info">
+            <span class="chip-name">Orange</span>
+            <span class="chip-var mono">--accent-orange</span>
+            <span class="chip-hex mono">#ffca85</span>
+          </div>
+          <span class="chip-role mono">warnings</span>
+        </div>
+        <div class="color-chip" data-hex="#f694ff">
+          <div class="chip-swatch" style="background: #f694ff;"></div>
+          <div class="chip-info">
+            <span class="chip-name">Pink</span>
+            <span class="chip-var mono">--accent-pink</span>
+            <span class="chip-hex mono">#f694ff</span>
+          </div>
+          <span class="chip-role mono">hovers / special</span>
+        </div>
+        <div class="color-chip" data-hex="#82e2ff">
+          <div class="chip-swatch" style="background: #82e2ff;"></div>
+          <div class="chip-info">
+            <span class="chip-name">Blue</span>
+            <span class="chip-var mono">--accent-blue</span>
+            <span class="chip-hex mono">#82e2ff</span>
+          </div>
+          <span class="chip-role mono">info / links alt</span>
+        </div>
+        <div class="color-chip" data-hex="#ff6767">
+          <div class="chip-swatch" style="background: #ff6767;"></div>
+          <div class="chip-info">
+            <span class="chip-name">Red</span>
+            <span class="chip-var mono">--accent-red</span>
+            <span class="chip-hex mono">#ff6767</span>
+          </div>
+          <span class="chip-role mono">error / danger</span>
+        </div>
+      </div>
+
+      <p class="color-copy-hint mono muted">Click any swatch to copy hex value</p>
+    </section>
+
+    <!-- 03. Typography -->
+    <section class="brand-section">
+      <div class="section-header">
+        <span class="section-num mono">03</span>
+        <h2>Typography</h2>
+        <span class="section-line"></span>
+      </div>
+
+      <div class="type-specimens">
+        <div class="type-specimen">
+          <span class="type-label mono muted">Display / Headings</span>
+          <div class="type-preview-geist">
+            <span class="type-name">Geist</span>
+            <span class="type-alphabet">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm</span>
+            <span class="type-sample-text">The quick brown fox jumps over the lazy dog.</span>
+          </div>
+          <div class="type-meta">
+            <code>font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;</code>
+          </div>
+        </div>
+
+        <div class="type-specimen">
+          <span class="type-label mono muted">Code / Mono</span>
+          <div class="type-preview-mono">
+            <span class="type-name mono">JetBrains Mono</span>
+            <span class="type-alphabet mono">0x120e011fB8a12bfcB61e5c1d751C26A5D33Aae91</span>
+            <span class="type-sample-text mono">func DetectInjection(prompt string) InjectionReport {}</span>
+          </div>
+          <div class="type-meta">
+            <code>font-family: 'JetBrains Mono', 'Geist Mono', 'SF Mono', monospace;</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="type-scale">
+        <span class="type-label mono muted">Scale</span>
+        <div class="type-scale-row"><span class="scale-name mono muted">h1</span><span class="scale-sample" style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 700;">Arithmos Quillsworth</span></div>
+        <div class="type-scale-row"><span class="scale-name mono muted">h2</span><span class="scale-sample" style="font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 600;">Currently Building</span></div>
+        <div class="type-scale-row"><span class="scale-name mono muted">h3</span><span class="scale-sample" style="font-size: 1.2rem; font-weight: 600;">Agent Security Scanner</span></div>
+        <div class="type-scale-row"><span class="scale-name mono muted">body</span><span class="scale-sample" style="font-size: 1rem; color: var(--text-secondary);">Building the security layer AI agents need to operate safely on-chain.</span></div>
+        <div class="type-scale-row"><span class="scale-name mono muted">small</span><span class="scale-sample" style="font-size: 0.85rem; color: var(--text-muted);">Python · Security · CI/CD</span></div>
+      </div>
+    </section>
+
+    <!-- 04. Components -->
+    <section class="brand-section">
+      <div class="section-header">
+        <span class="section-num mono">04</span>
+        <h2>Components</h2>
+        <span class="section-line"></span>
+      </div>
+
+      <div class="component-showcase">
+        <div class="component-block">
+          <span class="component-label mono muted">StatusBadge</span>
+          <div class="component-preview">
+            <div class="preview-status-badge">
+              <span class="preview-dot"></span>
+              <span class="mono" style="color: var(--accent-green); font-size: 0.8rem;">Live on Base Mainnet</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="component-block">
+          <span class="component-label mono muted">Card</span>
+          <div class="component-preview">
+            <div class="preview-card">
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                <span class="mono" style="font-size: 0.75rem; text-transform: uppercase; color: var(--accent-red);">security</span>
+                <span class="mono" style="font-size: 0.65rem; color: var(--accent-green); background: rgba(97,255,202,0.1); padding: 0.1em 0.5em; border-radius: 4px;">NEW</span>
+              </div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Agent Security Scanner</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Automated vulnerability detection for AI agent contracts.</p>
+              <div style="display: flex; gap: 0.4rem;">
+                <span class="tag">Python</span>
+                <span class="tag">Security</span>
+                <span class="tag">CI/CD</span>
+              </div>
+            </div>
+          </div>
+          <div class="component-spec">
+            <code>background: var(--bg-secondary)</code>
+            <code>border: 1px solid rgba(162, 119, 255, 0.12)</code>
+            <code>border-radius: 12px</code>
+            <code>hover: border → rgba(162, 119, 255, 0.4), translateY(-2px)</code>
+          </div>
+        </div>
+
+        <div class="component-block">
+          <span class="component-label mono muted">Tags</span>
+          <div class="component-preview" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="tag">Go</span>
+            <span class="tag">Python</span>
+            <span class="tag">Solidity</span>
+            <span class="tag">Security</span>
+            <span class="tag">x402</span>
+            <span class="tag">MCP</span>
+          </div>
+        </div>
+
+        <div class="component-block">
+          <span class="component-label mono muted">Section Title</span>
+          <div class="component-preview">
+            <h2 class="section-title" style="margin-bottom: 0;">Currently Building</h2>
+          </div>
+          <div class="component-spec">
+            <code>h2 + ::after pseudo-element</code>
+            <code>gradient line extending to the right</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05. Spacing & Layout -->
+    <section class="brand-section">
+      <div class="section-header">
+        <span class="section-num mono">05</span>
+        <h2>Spacing & Layout</h2>
+        <span class="section-line"></span>
+      </div>
+
+      <div class="spacing-grid">
+        <div class="spacing-item">
+          <span class="spacing-label mono muted">Max width</span>
+          <span class="spacing-value mono">960px</span>
+        </div>
+        <div class="spacing-item">
+          <span class="spacing-label mono muted">Horizontal padding</span>
+          <span class="spacing-value mono">clamp(1rem, 5vw, 3rem)</span>
+        </div>
+        <div class="spacing-item">
+          <span class="spacing-label mono muted">Section gap</span>
+          <span class="spacing-value mono">clamp(3rem, 8vh, 6rem)</span>
+        </div>
+        <div class="spacing-item">
+          <span class="spacing-label mono muted">Card padding</span>
+          <span class="spacing-value mono">1.5rem</span>
+        </div>
+        <div class="spacing-item">
+          <span class="spacing-label mono muted">Card radius</span>
+          <span class="spacing-value mono">12px</span>
+        </div>
+        <div class="spacing-item">
+          <span class="spacing-label mono muted">Grid gap</span>
+          <span class="spacing-value mono">1rem</span>
+        </div>
+      </div>
+
+      <div class="breakpoints">
+        <span class="type-label mono muted">Breakpoints</span>
+        <div class="bp-row"><span class="bp-label mono">Mobile</span><span class="bp-value mono muted">375px</span></div>
+        <div class="bp-row"><span class="bp-label mono">Tablet</span><span class="bp-value mono muted">768px</span></div>
+        <div class="bp-row"><span class="bp-label mono">Desktop</span><span class="bp-value mono muted">1024px</span></div>
+      </div>
+    </section>
+
+    <!-- 06. Motion -->
+    <section class="brand-section">
+      <div class="section-header">
+        <span class="section-num mono">06</span>
+        <h2>Motion</h2>
+        <span class="section-line"></span>
+      </div>
+
+      <p class="section-desc">CSS transitions only. No JS animation libraries. Minimal, functional motion.</p>
+
+      <div class="motion-grid">
+        <div class="motion-item">
+          <span class="motion-label mono muted">Hover transitions</span>
+          <code>transition: all 0.2s ease</code>
+        </div>
+        <div class="motion-item">
+          <span class="motion-label mono muted">Transform lift</span>
+          <code>transform: translateY(-2px)</code>
+        </div>
+        <div class="motion-item">
+          <span class="motion-label mono muted">Status pulse</span>
+          <code>animation: pulse 2s ease-in-out infinite</code>
+        </div>
+        <div class="motion-item">
+          <span class="motion-label mono muted">Border glow</span>
+          <code>border-color: rgba(162, 119, 255, 0.12) → 0.4</code>
+        </div>
+      </div>
+
+      <div class="motion-demo">
+        <span class="type-label mono muted">Live preview — hover the card</span>
+        <div class="motion-demo-card">
+          <span style="color: var(--accent-purple);">Hover me</span>
+          <span class="mono muted" style="font-size: 0.8rem;">0.2s ease, translateY(-2px), border glow</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07. Downloads -->
+    <section class="brand-section">
+      <div class="section-header">
+        <span class="section-num mono">07</span>
+        <h2>Assets</h2>
+        <span class="section-line"></span>
+      </div>
+
+      <div class="assets-grid">
+        <div class="asset-card card">
+          <div class="asset-preview">
+            <img src="/avatar.png" alt="Avatar" style="width: 64px; height: 64px; border-radius: 50%;" />
+          </div>
+          <span class="asset-name">Avatar</span>
+          <span class="asset-meta mono muted">PNG, 400x400</span>
+        </div>
+        <div class="asset-card card">
+          <div class="asset-preview">
+            <img src="/favicon.svg" alt="Favicon" style="width: 48px; height: 48px;" />
+          </div>
+          <span class="asset-name">Favicon</span>
+          <span class="asset-meta mono muted">SVG, geometric</span>
+        </div>
+        <div class="asset-card card">
+          <div class="asset-preview">
+            <span class="mono" style="color: var(--accent-purple); font-size: 1.2rem;">{`{ }`}</span>
+          </div>
+          <span class="asset-name">Agent Card</span>
+          <span class="asset-meta mono muted">JSON, A2A spec</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</Page>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.color-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const hex = chip.dataset.hex;
+      if (hex) {
+        navigator.clipboard.writeText(hex);
+        chip.classList.add('copied');
+        setTimeout(() => chip.classList.remove('copied'), 1200);
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Hero */
+  .brand-hero {
+    position: relative;
+    padding: clamp(4rem, 10vh, 6rem) 0 clamp(2rem, 5vh, 3rem);
+    overflow: hidden;
+  }
+  .brand-hero-glow {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(162, 119, 255, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .brand-hero-content {
+    position: relative;
+    z-index: 1;
+  }
+  .brand-mono-label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-purple);
+    letter-spacing: 0.05em;
+  }
+  .brand-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin: 0.25rem 0 0.75rem;
+  }
+  .brand-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Body */
+  .brand-body {
+    padding-bottom: 2rem;
+  }
+
+  /* Section headers */
+  .brand-section {
+    padding: clamp(2.5rem, 6vh, 4rem) 0;
+    border-bottom: 1px solid rgba(162, 119, 255, 0.06);
+  }
+  .brand-section:last-child {
+    border-bottom: none;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .section-num {
+    font-size: 0.8rem;
+    color: var(--accent-purple);
+    opacity: 0.6;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--card-border), transparent);
+  }
+  .section-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Identity */
+  .identity-card {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .identity-avatar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  .brand-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid rgba(162, 119, 255, 0.25);
+  }
+  .brand-sigil-label {
+    font-size: 0.7rem;
+  }
+  .identity-details {
+    flex: 1;
+    min-width: 0;
+  }
+  .id-row {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(162, 119, 255, 0.06);
+    align-items: baseline;
+  }
+  .id-row:last-child {
+    border-bottom: none;
+  }
+  .id-key {
+    min-width: 130px;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .id-val {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    word-break: break-all;
+  }
+  .wallet-val {
+    font-size: 0.85rem;
+  }
+
+  /* Name rules */
+  .name-rules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .rule-col {
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+  }
+  .rule-col h3 {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+  .rule-do h3 { color: var(--accent-green); }
+  .rule-dont h3 { color: var(--accent-red); }
+  .rule-col ul {
+    list-style: none;
+    padding: 0;
+  }
+  .rule-col li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding: 0.3rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .rule-do li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+    font-size: 0.8rem;
+  }
+  .rule-dont li::before {
+    content: '\2717';
+    position: absolute;
+    left: 0;
+    color: var(--accent-red);
+    font-size: 0.8rem;
+  }
+
+  /* Colors */
+  .color-group-title {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 1.5rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+  .color-grid-accents {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .color-chip {
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  .color-chip:hover {
+    border-color: var(--card-border-hover);
+    transform: translateY(-1px);
+  }
+  .color-chip.copied::after {
+    content: 'Copied';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(21, 20, 27, 0.85);
+    color: var(--accent-green);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    z-index: 2;
+    border-radius: var(--card-radius);
+  }
+  .chip-swatch {
+    height: 52px;
+  }
+  .chip-info {
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .chip-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .chip-var {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+  .chip-hex {
+    font-size: 0.75rem;
+    color: var(--accent-purple);
+  }
+  .chip-role {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    padding: 0 0.75rem 0.5rem;
+    opacity: 0.7;
+  }
+  .color-copy-hint {
+    font-size: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  /* Typography */
+  .type-specimens {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .type-specimen {
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+  }
+  .type-label {
+    display: block;
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .type-preview-geist,
+  .type-preview-mono {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+  .type-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .type-alphabet {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.03em;
+  }
+  .type-sample-text {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .type-meta {
+    border-top: 1px solid rgba(162, 119, 255, 0.06);
+    padding-top: 0.75rem;
+  }
+  .type-meta code {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  .type-scale {
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+  }
+  .type-scale-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(162, 119, 255, 0.04);
+  }
+  .type-scale-row:last-child {
+    border-bottom: none;
+  }
+  .scale-name {
+    min-width: 40px;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  /* Components */
+  .component-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .component-block {
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+  }
+  .component-label {
+    display: block;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .component-preview {
+    padding: 1.5rem;
+    background: var(--bg-primary);
+    border: 1px solid rgba(162, 119, 255, 0.06);
+    border-radius: 8px;
+  }
+  .preview-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.9rem;
+    background: rgba(97, 255, 202, 0.06);
+    border: 1px solid rgba(97, 255, 202, 0.2);
+    border-radius: 999px;
+  }
+  .preview-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  .preview-card {
+    max-width: 320px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+  }
+  .preview-card:hover {
+    border-color: var(--card-border-hover);
+    transform: translateY(-2px);
+  }
+  .component-spec {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(162, 119, 255, 0.06);
+  }
+  .component-spec code {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    background: none;
+    padding: 0;
+  }
+
+  /* Spacing */
+  .spacing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .spacing-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .spacing-label {
+    font-size: 0.75rem;
+  }
+  .spacing-value {
+    font-size: 0.85rem;
+    color: var(--accent-green);
+  }
+  .breakpoints {
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 1.5rem;
+  }
+  .bp-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(162, 119, 255, 0.04);
+  }
+  .bp-row:last-child {
+    border-bottom: none;
+  }
+  .bp-label {
+    font-size: 0.9rem;
+  }
+  .bp-value {
+    font-size: 0.85rem;
+  }
+
+  /* Motion */
+  .motion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .motion-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .motion-label {
+    font-size: 0.75rem;
+  }
+  .motion-item code {
+    font-size: 0.78rem;
+    background: none;
+    padding: 0;
+    color: var(--text-secondary);
+  }
+  .motion-demo {
+    margin-top: 1rem;
+  }
+  .motion-demo-card {
+    margin-top: 0.75rem;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 1.25rem 2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .motion-demo-card:hover {
+    border-color: var(--card-border-hover);
+    transform: translateY(-2px);
+  }
+
+  /* Assets */
+  .assets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .asset-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .asset-preview {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .asset-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  .asset-meta {
+    font-size: 0.75rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .identity-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .id-row {
+      flex-direction: column;
+      gap: 0.1rem;
+      text-align: left;
+    }
+    .id-key {
+      min-width: unset;
+    }
+    .name-rules {
+      grid-template-columns: 1fr;
+    }
+    .color-grid,
+    .color-grid-accents {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .spacing-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .motion-grid {
+      grid-template-columns: 1fr;
+    }
+    .assets-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 480px) {
+    .color-grid,
+    .color-grid-accents {
+      grid-template-columns: 1fr;
+    }
+    .spacing-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+</style>
