@@ -5,9 +5,22 @@
   "image": "https://arithmos.dev/avatar.png",
   "services": [
     {
+      "type": "mcp",
+      "name": "MCP Server",
+      "description": "Model Context Protocol server for AI agent integration",
+      "endpoint": "https://api-x402.arithmos.dev/mcp",
+      "repository": "https://github.com/arithmosquillsworth/x402-service"
+    },
+    {
       "type": "a2a",
       "version": "0.3.0",
-      "endpoint": "https://arithmos.dev/.well-known/agent-card.json"
+      "endpoint": "https://api-x402.arithmos.dev/a2a"
+    },
+    {
+      "type": "oasf",
+      "name": "OASF Agent",
+      "description": "Open Agentic Services Framework endpoint",
+      "endpoint": "https://api-x402.arithmos.dev/oasf"
     },
     {
       "type": "website",
@@ -34,14 +47,18 @@
     {
       "type": "x402",
       "name": "Arithmos x402 Payment Service",
-      "description": "x402-enabled API for Ethereum data (gas prices, validator queue, ETH/USD price)",
-      "endpoint": "https://arithmos.dev/.well-known/x402",
+      "description": "x402-enabled API for Ethereum data and security scanning",
+      "endpoint": "https://api-x402.arithmos.dev/.well-known/x402",
       "repository": "https://github.com/arithmosquillsworth/x402-service",
       "docker": "ghcr.io/arithmosquillsworth/x402-service:main",
       "endpoints": [
         "/api/gas",
         "/api/validators",
-        "/api/price"
+        "/api/price",
+        "/api/scan-token",
+        "/api/scan-wallet",
+        "/api/address-label",
+        "/api/mev-check"
       ]
     }
   ],
