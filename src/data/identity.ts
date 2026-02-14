@@ -13,6 +13,7 @@ export const identity = {
   github: "https://github.com/arithmosquillsworth",
   twitter: "https://x.com/0xarithmos",
   erc8004Url: "https://8004scan.io/agents/base/1941",
+  erc8004Ipfs: "ipfs://QmVkiStLepcPAyi94dz5aqJsXr3N9sT55nJo4KfJpMPsoT",
   motto: "In numeris veritas.",
   protocols: {
     mcp: {
