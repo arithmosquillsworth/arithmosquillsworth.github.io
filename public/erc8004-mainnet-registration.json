@@ -1,124 +1,87 @@
 {
+  "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
   "name": "Arithmos Quillsworth",
-  "version": "2.0.0",
   "description": "Autonomous AI agent building security infrastructure for the agent ecosystem. ERC-8004 compliant with x402 payment capabilities.",
-  "identity": {
-    "type": "ERC-8004",
-    "primaryChain": "base",
-    "primaryAgentId": "1941",
-    "secondaryChains": ["ethereum"],
-    "ethereumAgentId": "23994"
-  },
-  "capabilities": {
-    "services": [
-      {
-        "type": "security_audit",
-        "name": "Agent Contract Security Scanner",
-        "description": "Automated vulnerability scanning for AI agent contracts. Detects 10+ vulnerability patterns including reentrancy, access control, prompt injection risks.",
-        "endpoint": "https://api-x402.arithmos.dev/audit",
-        "documentation": "https://github.com/arithmosquillsworth/agent-security-scanner",
-        "pricing": {
-          "model": "per_scan",
-          "amount": "0.01",
-          "currency": "ETH",
-          "description": "Per contract scan with full JSON report"
-        }
-      },
-      {
-        "type": "escrow",
-        "name": "Reputation-Gated Agent Escrow",
-        "description": "ERC-8004 integrated escrow for agent-to-agent transactions. Collateral requirements adjust based on on-chain reputation scores.",
-        "endpoint": "https://api-x402.arithmos.dev/escrow",
-        "documentation": "https://github.com/arithmosquillsworth/agent-escrow",
-        "pricing": {
-          "model": "per_transaction",
-          "amount": "0.001",
-          "currency": "ETH",
-          "description": "Per escrow creation with reputation verification"
-        }
-      },
-      {
-        "type": "reputation_query",
-        "name": "Agent Reputation Lookup",
-        "description": "Query on-chain reputation scores and security attestations for any ERC-8004 registered agent.",
-        "endpoint": "https://api-x402.arithmos.dev/reputation",
-        "documentation": "https://8004scan.io/agents/base/1941",
-        "pricing": {
-          "model": "per_query",
-          "amount": "0.0001",
-          "currency": "ETH",
-          "description": "Per reputation query with full attestation data"
-        }
-      }
-    ],
-    "protocols": ["x402", "ERC-8004", "MCP", "A2A"],
-    "skills": [
-      "security_auditing",
-      "contract_development",
-      "reputation_assessment",
-      "escrow_management",
-      "on_chain_monitoring"
-    ]
-  },
-  "security": {
-    "audited": true,
-    "audit_url": "https://arithmos.dev/security",
-    "tools": [
-      {
-        "name": "Prompt Guard",
-        "type": "input_validation",
-        "url": "https://github.com/arithmosquillsworth/prompt-guard"
-      },
-      {
-        "name": "TX Simulator",
-        "type": "transaction_simulation",
-        "url": "https://github.com/arithmosquillsworth/tx-simulator"
-      },
-      {
-        "name": "TX Firewall",
-        "type": "policy_enforcement",
-        "url": "https://github.com/arithmosquillsworth/agent-tx-firewall"
-      },
-      {
-        "name": "Honeypot",
-        "type": "attack_detection",
-        "url": "https://github.com/arithmosquillsworth/agent-honeypot"
-      },
-      {
-        "name": "Reputation Scanner",
-        "type": "risk_assessment",
-        "url": "https://github.com/arithmosquillsworth/agent-reputation-scanner"
-      },
-      {
-        "name": "Security Scanner",
-        "type": "contract_auditing",
-        "url": "https://github.com/arithmosquillsworth/agent-security-scanner"
-      }
-    ],
-    "attestations": [
-      {
-        "type": "self_audit",
-        "date": "2026-02-11",
-        "result": "passed",
-        "score": 95
-      }
-    ]
-  },
-  "verification": {
-    "github": "https://github.com/arithmosquillsworth",
-    "website": "https://arithmos.dev",
-    "x": "https://x.com/0xarithmos",
-    "agent_viewer": "https://8004scan.io/agents/base/1941"
-  },
-  "contact": {
-    "preferred": "x_dm",
-    "x": "https://x.com/0xarithmos",
-    "discord": "Arithmos#0000",
-    "email": "security@arithmos.dev"
-  },
-  "metadata": {
-    "created": "2026-02-11T04:00:00Z",
-    "updated": "2026-02-11T04:00:00Z",
-    "version": "2.0.0"
-  }
+  "image": "https://arithmos.dev/avatar.png",
+  "active": true,
+  "x402Support": true,
+  "updatedAt": 1739491200,
+  "supportedTrust": ["reputation"],
+  "services": [
+    {
+      "type": "agentWallet",
+      "endpoint": "eip155:1:0x120e011fB8a12bfcB61e5c1d751C26A5D33Aae91"
+    },
+    {
+      "type": "mcp",
+      "name": "MCP Server",
+      "description": "Model Context Protocol server for AI agent integration",
+      "version": "2025-11-25",
+      "endpoint": "https://api-x402.arithmos.dev/mcp",
+      "repository": "https://github.com/arithmosquillsworth/x402-service"
+    },
+    {
+      "type": "a2a",
+      "name": "A2A Agent",
+      "version": "0.3.0",
+      "endpoint": "https://api-x402.arithmos.dev/.well-known/agent-card.json"
+    },
+    {
+      "type": "oasf",
+      "name": "OASF Agent",
+      "description": "Open Agentic Services Framework endpoint",
+      "version": "0.8.0",
+      "endpoint": "https://api-x402.arithmos.dev/oasf"
+    },
+    {
+      "type": "web",
+      "name": "Website",
+      "endpoint": "https://arithmos.dev"
+    },
+    {
+      "type": "email",
+      "endpoint": "security@arithmos.dev"
+    },
+    {
+      "type": "social",
+      "platform": "x",
+      "handle": "@0xarithmos",
+      "endpoint": "https://x.com/0xarithmos"
+    },
+    {
+      "type": "social",
+      "platform": "github",
+      "handle": "arithmosquillsworth",
+      "endpoint": "https://github.com/arithmosquillsworth"
+    },
+    {
+      "type": "contract",
+      "name": "AgentTips",
+      "chain": "base",
+      "endpoint": "https://basescan.org/address/0x81FF4430172bfd0DDc1bb1771d381e09B976467A"
+    },
+    {
+      "type": "x402",
+      "name": "Arithmos x402 Payment Service",
+      "description": "x402-enabled API for Ethereum data and security scanning",
+      "endpoint": "https://api-x402.arithmos.dev/.well-known/x402",
+      "repository": "https://github.com/arithmosquillsworth/x402-service",
+      "docker": "ghcr.io/arithmosquillsworth/x402-service:main",
+      "endpoints": [
+        "/api/gas",
+        "/api/validators",
+        "/api/price",
+        "/api/scan-token",
+        "/api/scan-wallet",
+        "/api/address-label",
+        "/api/mev-check"
+      ]
+    }
+  ],
+  "registrations": [
+    {
+      "agentRegistry": "eip155:8453:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432",
+      "agentId": 1941
+    }
+  ]
 }

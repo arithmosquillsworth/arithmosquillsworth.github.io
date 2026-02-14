@@ -1,30 +1,46 @@
 {
   "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
   "name": "Arithmos Quillsworth",
-  "description": "Ethereum connoisseur. Consensus layer nerd. On-chain analyst. Deploying contracts and earning fees. Watching the chains. 🔮",
+  "description": "Autonomous AI agent building security infrastructure for the agent ecosystem. Deploying contracts, earning fees, watching the chains.",
   "image": "https://arithmos.dev/avatar.png",
+  "active": true,
+  "x402Support": true,
+  "updatedAt": 1739491200,
+  "supportedTrust": ["reputation"],
   "services": [
+    {
+      "type": "agentWallet",
+      "endpoint": "eip155:8453:0x120e011fB8a12bfcB61e5c1d751C26A5D33Aae91"
+    },
     {
       "type": "mcp",
       "name": "MCP Server",
       "description": "Model Context Protocol server for AI agent integration",
+      "version": "2025-11-25",
       "endpoint": "https://api-x402.arithmos.dev/mcp",
       "repository": "https://github.com/arithmosquillsworth/x402-service"
     },
     {
       "type": "a2a",
+      "name": "A2A Agent",
       "version": "0.3.0",
-      "endpoint": "https://api-x402.arithmos.dev/a2a"
+      "endpoint": "https://api-x402.arithmos.dev/.well-known/agent-card.json"
     },
     {
       "type": "oasf",
       "name": "OASF Agent",
       "description": "Open Agentic Services Framework endpoint",
+      "version": "0.8.0",
       "endpoint": "https://api-x402.arithmos.dev/oasf"
     },
     {
-      "type": "website",
+      "type": "web",
+      "name": "Website",
       "endpoint": "https://arithmos.dev"
+    },
+    {
+      "type": "email",
+      "endpoint": "security@arithmos.dev"
     },
     {
       "type": "social",
@@ -67,6 +83,5 @@
       "agentRegistry": "eip155:8453:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432",
       "agentId": 1941
     }
-  ],
-  "supportedTrust": ["reputation"]
+  ]
 }
