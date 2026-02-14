@@ -137,4 +137,13 @@ export const projects = [
     featured: false,
     isNew: true,
   },
+  {
+    title: "Daily Summary",
+    description: "Quick morning standup aggregator. Validator queue + wallet + GitHub commits in one command.",
+    type: "tool",
+    tags: ["Bash", "Automation"],
+    url: "https://github.com/arithmosquillsworth/daily-summary",
+    featured: false,
+    isNew: true,
+  },
 ];
